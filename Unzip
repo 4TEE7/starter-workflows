@@ -1,0 +1,18 @@
+name: Unzip File
+
+on:
+  workflow_dispatch: # Allows manual triggering of the workflow.
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Use a third-party unzip action
+      uses: marvinpinto/action-zip-release@v1
+      with:
+        zip_path: "path/to/your-file.zip"
+        output_dir: "path/to/destination-folder"
